@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Basic Embed</title>
+     <script src="https://unpkg.com/amazon-quicksight-embedding-sdk@1.0.1/dist/quicksight-embedding-js-sdk.min.js"></script>
+
+    <script type="text/javascript">
+        function embedDashboard() {
+            var containerDiv = document.getElementById("dashboardContainer");
+            var params = {
+                url: "https://eu-west-1.quicksight.aws.amazon.com/embed/e24d7105018142539c761e229773dfca/dashboards/eb1212314-d963-4429-1234-hguu12353882?isauthcode=true&identityprovider=quicksight&code=AYABeMsQMDRzxl9LxCh3HDAwsysAAAABAAdhd3Mta21zAEthcm46YXdzOmttczpldS13ZXN0LTE6MzU2MzA1MTgzMDczOmtleS83ZTYwMTNkMC0xM2I0LTRmODItYmI1NC00YjllMTM4NzczNjYAuAECAQB4UvBsEXAMPLPExOUyYEXAMPLEDOMAINyTZXo1wAAAH4wfAYJKoZIhvcNEXAMPLEwEwHgYJYIZIAWUDBAEuMBEEDIkr3dcLRj4lTsA4oAIBEIA71a5JDLxNat3ghvCf-Lp0gLmDiZ0edEBdOAr1MRbFjrozgVCWfjjupbSXKKjIAZKttJ0lP4GJS-wXcN0CAAAAAAwAABAAAAAAAAAAAAAAAAAAyc9zDhIUJqlBNnA5Pyu69_____8AAAABAAAAAAAAAAAAAAABAAAAmw2v_AM2-OCu36Y3iZeF4jD23a-rCNjgaQkL4gAHegBSJd4X2C0vmN5I9BT-1uBfmXWhAH2EXAMPLEkpUO_pcLGsNYtFeMu7dupypW2Nvn-Zc9jVQtTW4NCFLvrtenFWuDnCtnN7IVh-YAAr0ARjhpB4W7REd3PQEAyyjeiMpSka5P5rbPravQpRImsh9wMr6lwhG0MueBh2SpTGPK6OE8ARzjYzBcOeMnPa8Tw%3D%3D",
+                container: containerDiv,
+                parameters: {
+                    country: 'Ireland'
+                },
+                height: "700px",
+                width: "1000px"
+            };
+            var dashboard = QuickSightEmbedding.embedDashboard(params);
+            dashboard.on('error', function(err) {console.log('dashboard error:', err)});
+            dashboard.on('load', function() {});
+        }
+    </script>
+
+</head>
+
+<body onload="embedDashboard()">
+    <div id="dashboardContainer"></div>
+</body>
+</html>
